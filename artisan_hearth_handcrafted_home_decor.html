@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan & Hearth — Handcrafted Home Decor & Eco Artisanal Crafts</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: {
+                            50: '#fdf8f6',
+                            100: '#f9eee9',
+                            200: '#f2dacd',
+                            300: '#e7bcab',
+                            500: '#c86d51',
+                            600: '#b4553b',
+                            700: '#96422e',
+                            800: '#7c3829',
+                        },
+                        sand: {
+                            50: '#faf8f5',
+                            100: '#f3eee6',
+                            200: '#e5dacf',
+                            300: '#d3c2b1',
+                            800: '#52463a',
+                            900: '#3a3128',
+                        },
+                        sage: {
+                            100: '#e8ece6',
+                            500: '#788974',
+                            700: '#4b5748',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #faf8f5;
+            color: #3a3128;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .artisan-badge {
+            background: linear-gradient(135deg, #e7bcab 0%, #c86d51 100%);
+        }
+        /* Custom scrollbar for clean aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f3eee6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d3c2b1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c86d51;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-terracotta-200 selection:text-terracotta-800">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-terracotta-700 text-terracotta-50 text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-terracotta-200"></i>
+        <span>Handcrafted with Care &bull; Free Global Shipping on Orders Over $120</span>
+        <span class="hidden md:inline-block font-normal opacity-80">&bull; Use code <strong class="underline decoration-terracotta-300">ARTISAN10</strong> for 10% off</span>
+    </div>
+
+    <!-- Main Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-sand-50/90 backdrop-blur-md border-b border-sand-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#home" onclick="switchTab('home')" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-terracotta-600 text-sand-50 flex items-center justify-center shadow-md shadow-terracotta-600/20 group-hover:scale-105 transition-transform">
+                        <i data-lucide="flower-2" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl font-bold tracking-tight text-sand-900 group-hover:text-terracotta-600 transition-colors">Artisan & Hearth</span>
+                        <span class="block text-[10px] tracking-widest uppercase text-terracotta-600 font-semibold -mt-1">Handmade Home Decor</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Menu -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" onclick="switchTab('home')" class="nav-link text-sm font-medium text-sand-800 hover:text-terracotta-600 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta-600">Home</a>
+                    <a href="#shop" onclick="switchTab('shop')" class="nav-link text-sm font-medium text-sand-800 hover:text-terracotta-600 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta-600">Shop Collection</a>
+                    <a href="#story" onclick="switchTab('story')" class="nav-link text-sm font-medium text-sand-800 hover:text-terracotta-600 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta-600">Our Craft & Story</a>
+                    <a href="#reviews" onclick="switchTab('reviews')" class="nav-link text-sm font-medium text-sand-800 hover:text-terracotta-600 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta-600">Reviews</a>
+                    <a href="#custom" onclick="switchTab('custom')" class="nav-link text-sm font-medium text-sand-800 hover:text-terracotta-600 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta-600 flex items-center gap-1.5">
+                        <i data-lucide="wand-2" class="w-3.5 h-3.5 text-terracotta-500"></i>
+                        <span>Custom Request</span>
+                    </a>
+                </nav>
+
+                <!-- Search, Wishlist & Cart Actions -->
+                <div class="flex items-center space-x-3 sm:space-x-4">
+                    
+                    <!-- Search Bar Toggle / Input -->
+                    <div class="relative hidden sm:block w-48 lg:w-60">
+                        <input type="text" id="searchInput" oninput="handleSearch(this.value)" placeholder="Search pots, rugs, macrame..." class="w-full pl-9 pr-4 py-2 text-xs rounded-full bg-sand-100 border border-sand-200 text-sand-900 focus:outline-none focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 transition-all">
+                        <i data-lucide="search" class="w-3.5 h-3.5 text-sand-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                    </div>
+
+                    <!-- Wishlist Trigger -->
+                    <button onclick="toggleWishlistModal()" class="relative p-2.5 rounded-full text-sand-800 hover:bg-sand-200/60 transition-colors" title="Wishlist">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                        <span id="wishlistBadge" class="absolute top-1 right-1 bg-terracotta-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Shopping Cart Trigger -->
+                    <button onclick="toggleCartModal()" class="relative p-2.5 rounded-full bg-terracotta-600 text-white hover:bg-terracotta-700 transition-all shadow-md shadow-terracotta-600/20 flex items-center gap-2 px-3.5">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        <span class="text-xs font-semibold hidden sm:inline-block">Bag</span>
+                        <span id="cartCountBadge" class="bg-white text-terracotta-700 text-[11px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileNav()" class="lg:hidden p-2 rounded-lg text-sand-800 hover:bg-sand-200">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-sand-50 border-b border-sand-200 px-6 py-4 space-y-3">
+            <div class="mb-3">
+                <input type="text" oninput="handleSearch(this.value)" placeholder="Search catalog..." class="w-full px-4 py-2 text-xs rounded-lg bg-sand-100 border border-sand-200">
+            </div>
+            <a href="#home" onclick="switchTab('home'); toggleMobileNav()" class="block text-sm font-semibold text-sand-900 py-1.5">Home</a>
+            <a href="#shop" onclick="switchTab('shop'); toggleMobileNav()" class="block text-sm font-semibold text-sand-900 py-1.5">Shop Collection</a>
+            <a href="#story" onclick="switchTab('story'); toggleMobileNav()" class="block text-sm font-semibold text-sand-900 py-1.5">Our Craft & Story</a>
+            <a href="#reviews" onclick="switchTab('reviews'); toggleMobileNav()" class="block text-sm font-semibold text-sand-900 py-1.5">Customer Reviews</a>
+            <a href="#custom" onclick="switchTab('custom'); toggleMobileNav()" class="block text-sm font-semibold text-terracotta-600 py-1.5">Request Custom Order</a>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Content Views -->
+    <main class="flex-grow">
+        
+        <!-- HERO SECTION -->
+        <section id="sec-hero" class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-sand-100/70 to-sand-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Hero Content Left -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-terracotta-100 border border-terracotta-200 text-terracotta-800 text-xs font-semibold">
+                            <i data-lucide="leaf" class="w-3.5 h-3.5 text-sage-500"></i>
+                            <span>100% Sustainable & Eco-Friendly Materials</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-sand-900 leading-[1.15]">
+                            Bringing Warmth & Heart Into <span class="italic font-normal text-terracotta-600">Your Sanctuary</span>
+                        </h1>
+
+                        <p class="text-sand-800 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Discover ethically handcrafted pottery, intricate macramé wall hangings, carved solid wood trays, and woven linen cushions—each piece individually shaped by master artisans.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <button onclick="switchTab('shop')" class="w-full sm:w-auto px-8 py-3.5 bg-terracotta-600 hover:bg-terracotta-700 text-white font-semibold rounded-xl shadow-lg shadow-terracotta-600/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                <span>Explore Collection</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="switchTab('story')" class="w-full sm:w-auto px-8 py-3.5 bg-white border border-sand-300 text-sand-900 font-semibold rounded-xl hover:bg-sand-100 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="compass" class="w-4 h-4 text-terracotta-600"></i>
+                                <span>Our Craft Process</span>
+                            </button>
+                        </div>
+
+                        <!-- Highlights Badge Row -->
+                        <div class="pt-8 border-t border-sand-200/80 grid grid-cols-3 gap-4 text-center lg:text-left max-w-md mx-auto lg:mx-0">
+                            <div>
+                                <span class="block text-2xl font-serif font-bold text-sand-900">100%</span>
+                                <span class="text-xs text-sand-800 font-medium">Handmade Crafts</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-serif font-bold text-sand-900">4.9 ★</span>
+                                <span class="text-xs text-sand-800 font-medium">1,400+ Reviews</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-serif font-bold text-sand-900">Zero</span>
+                                <span class="text-xs text-sand-800 font-medium">Plastic Packaging</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual Right -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative bg-sand-200">
+                                <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=1000&q=80" alt="Artisanal Terracotta Pottery" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-sand-900/40 via-transparent to-transparent"></div>
+                                
+                                <!-- Floating Artisan Badge -->
+                                <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/40 shadow-xl flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden bg-terracotta-200 flex-shrink-0 border border-terracotta-300">
+                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Artisan Maker" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <span class="text-xs font-semibold uppercase tracking-wider text-terracotta-600 block">Artisan Spotlight</span>
+                                        <h4 class="text-sm font-bold text-sand-900">Elena Vance &bull; Master Potter</h4>
+                                        <p class="text-[11px] text-sand-800 italic">"Every clay curvature holds a story of stillness."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decorative Accent Pill -->
+                            <div class="absolute -top-4 -right-4 bg-terracotta-50 text-terracotta-800 p-3 rounded-2xl border border-terracotta-200 shadow-lg hidden sm:flex items-center gap-2">
+                                <i data-lucide="award" class="w-5 h-5 text-terracotta-600"></i>
+                                <div class="text-xs">
+                                    <strong class="block leading-none">Craftsmanship Award</strong>
+                                    <span class="text-[10px] text-sand-800">Sustainable Design 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED CATEGORIES SECTION -->
+        <section class="py-16 bg-sand-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600">Curated Spaces</span>
+                        <h2 class="text-3xl font-serif font-bold text-sand-900 mt-1">Browse by Artisanal Category</h2>
+                    </div>
+                    <p class="text-sand-800 text-sm max-w-md mt-2 md:mt-0">Find organic textures and functional art crafted specifically for cozy modern homes.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                    
+                    <!-- Cat 1 -->
+                    <div onclick="filterByCategory('pottery')" class="group cursor-pointer relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md border border-sand-200">
+                        <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80" alt="Pottery & Ceramics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-sand-900/80 via-sand-900/20 to-transparent p-5 flex flex-col justify-end text-white">
+                            <h3 class="text-lg font-serif font-bold group-hover:text-terracotta-300 transition-colors">Pottery & Ceramics</h3>
+                            <p class="text-xs text-sand-200 mt-1">Vases, Mugs & Ceramic Bowls</p>
+                        </div>
+                    </div>
+
+                    <!-- Cat 2 -->
+                    <div onclick="filterByCategory('macrame')" class="group cursor-pointer relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md border border-sand-200">
+                        <img src="https://images.unsplash.com/photo-1528458901411-2058337088b9?auto=format&fit=crop&w=600&q=80" alt="Wall Decor & Macrame" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-sand-900/80 via-sand-900/20 to-transparent p-5 flex flex-col justify-end text-white">
+                            <h3 class="text-lg font-serif font-bold group-hover:text-terracotta-300 transition-colors">Macramé & Wall Art</h3>
+                            <p class="text-xs text-sand-200 mt-1">Hand-knotted Cotton Tapestries</p>
+                        </div>
+                    </div>
+
+                    <!-- Cat 3 -->
+                    <div onclick="filterByCategory('wood')" class="group cursor-pointer relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md border border-sand-200">
+                        <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=600&q=80" alt="Woodcraft & Trays" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-sand-900/80 via-sand-900/20 to-transparent p-5 flex flex-col justify-end text-white">
+                            <h3 class="text-lg font-serif font-bold group-hover:text-terracotta-300 transition-colors">Woodcraft & Trays</h3>
+                            <p class="text-xs text-sand-200 mt-1">Carved Teak & Acacia Decor</p>
+                        </div>
+                    </div>
+
+                    <!-- Cat 4 -->
+                    <div onclick="filterByCategory('textiles')" class="group cursor-pointer relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md border border-sand-200">
+                        <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80" alt="Textiles & Cushions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-sand-900/80 via-sand-900/20 to-transparent p-5 flex flex-col justify-end text-white">
+                            <h3 class="text-lg font-serif font-bold group-hover:text-terracotta-300 transition-colors">Textiles & Throws</h3>
+                            <p class="text-xs text-sand-200 mt-1">Woven Linen & Organic Cotton</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MAIN SHOP / CATALOG SECTION -->
+        <section id="sec-shop" class="py-16 bg-white border-y border-sand-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600">Explore Handcrafted Treasures</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-sand-900 mt-1">Our Handmade Collection</h2>
+                    <p class="text-sand-800 text-sm mt-3">Every single piece is individual. Small imperfections in clay texture, wood grain, or weave density reflect the human touch.</p>
+                </div>
+
+                <!-- Filter & Search Controls Toolbar -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 pb-6 border-b border-sand-200">
+                    
+                    <!-- Category Pills -->
+                    <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                        <button onclick="filterByCategory('all')" id="cat-btn-all" class="cat-pill active px-4 py-2 text-xs font-semibold rounded-full bg-terracotta-600 text-white transition-all">All Products</button>
+                        <button onclick="filterByCategory('pottery')" id="cat-btn-pottery" class="cat-pill px-4 py-2 text-xs font-semibold rounded-full bg-sand-100 text-sand-800 hover:bg-sand-200 transition-all">Pottery & Ceramics</button>
+                        <button onclick="filterByCategory('macrame')" id="cat-btn-macrame" class="cat-pill px-4 py-2 text-xs font-semibold rounded-full bg-sand-100 text-sand-800 hover:bg-sand-200 transition-all">Wall Macramé</button>
+                        <button onclick="filterByCategory('wood')" id="cat-btn-wood" class="cat-pill px-4 py-2 text-xs font-semibold rounded-full bg-sand-100 text-sand-800 hover:bg-sand-200 transition-all">Woodcraft</button>
+                        <button onclick="filterByCategory('textiles')" id="cat-btn-textiles" class="cat-pill px-4 py-2 text-xs font-semibold rounded-full bg-sand-100 text-sand-800 hover:bg-sand-200 transition-all">Textiles</button>
+                    </div>
+
+                    <!-- Sort Selection -->
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+                        <span class="text-xs text-sand-800 font-medium whitespace-nowrap">Sort By:</span>
+                        <select id="sortSelect" onchange="handleSortChange(this.value)" class="text-xs bg-sand-100 border border-sand-200 text-sand-900 py-2 px-3 rounded-lg focus:outline-none focus:border-terracotta-500">
+                            <option value="featured">Featured Artisans</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Products Grid -->
+                <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                    <!-- Dynamic Product Cards will be injected by JavaScript -->
+                </div>
+
+                <!-- Empty State Placeholder (Hidden by default) -->
+                <div id="emptyStoreState" class="hidden text-center py-16">
+                    <i data-lucide="package-open" class="w-12 h-12 text-sand-400 mx-auto mb-3"></i>
+                    <h3 class="text-lg font-bold text-sand-900">No Handcrafted Items Found</h3>
+                    <p class="text-xs text-sand-800 mt-1">Try adjusting your search terms or category selection.</p>
+                    <button onclick="filterByCategory('all')" class="mt-4 px-4 py-2 bg-terracotta-600 text-white text-xs font-semibold rounded-lg">Reset Filters</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ARTISANAL STORY & PROCESS SECTION -->
+        <section id="sec-story" class="py-20 bg-sand-100/60 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Left Images Collated -->
+                    <div class="grid grid-cols-2 gap-4 relative">
+                        <div class="space-y-4">
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-square">
+                                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80" alt="Pottery Wheel Craft" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-[4/5] bg-terracotta-800 text-white p-6 flex flex-col justify-between">
+                                <i data-lucide="quote" class="w-8 h-8 text-terracotta-300 opacity-60"></i>
+                                <p class="font-serif italic text-sm leading-relaxed">
+                                    "When you buy handmade, you buy hours of experiments, failures, and moments of pure joy."
+                                </p>
+                                <span class="text-xs font-semibold text-terracotta-200">— Artisan Workshop Note</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-[4/5]">
+                                <img src="https://images.unsplash.com/photo-1606744888344-493238951221?auto=format&fit=crop&w=600&q=80" alt="Macrame Weaving" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-square bg-sage-100 p-6 flex flex-col justify-center text-sage-700">
+                                <i data-lucide="recycle" class="w-8 h-8 text-sage-500 mb-2"></i>
+                                <h4 class="font-serif font-bold text-base">Zero Waste Promise</h4>
+                                <p class="text-xs text-sand-800 mt-1">Raw clay trimmings are re-hydrated; cotton scraps become paper labels.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Story Narrative -->
+                    <div class="space-y-6">
+                        <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600">Slow Crafting Philosophy</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-sand-900 leading-tight">
+                            Made by Human Hands, Driven by Passion
+                        </h2>
+                        <p class="text-sand-800 text-sm leading-relaxed">
+                            What started as a quiet pottery wheel in a sunlit backyard studio has grown into a collective of passionate independent makers. We reject mass production and synthetic assembly lines in favor of tactile organic materials.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-terracotta-100 text-terracotta-700 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="earth" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-sand-900">Ethically Harvested Raw Clay & Timber</h4>
+                                    <p class="text-xs text-sand-800 mt-0.5">Sourced from local sustainable beds and fallen hardwood timber.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-terracotta-100 text-terracotta-700 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-sand-900">Fair Wages & Independent Artisans</h4>
+                                    <p class="text-xs text-sand-800 mt-0.5">Direct partnership with local craftsmen ensuring fair compensation for every creation.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-terracotta-100 text-terracotta-700 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="box" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-sand-900">Plastic-Free Biodegradable Packaging</h4>
+                                    <p class="text-xs text-sand-800 mt-0.5">Wrapped in recycled kraft paper, jute twine, and eco-friendly starch wrap.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="pt-4">
+                            <button onclick="switchTab('custom')" class="px-6 py-3 bg-sand-900 hover:bg-sand-800 text-white font-semibold rounded-xl text-xs transition-all flex items-center gap-2">
+                                <span>Commission a Bespoke Piece</span>
+                                <i data-lucide="sparkle" class="w-3.5 h-3.5 text-terracotta-300"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS & TESTIMONIALS SECTION -->
+        <section id="sec-reviews" class="py-16 bg-sand-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600">Loved by Homeowners</span>
+                    <h2 class="text-3xl font-serif font-bold text-sand-900 mt-1">Stories from Homes Around the World</h2>
+                    <div class="flex items-center justify-center gap-1 text-amber-500 mt-2">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                        <span class="text-xs font-bold text-sand-800 ml-2">4.96 / 5.0 Average Rating</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Review 1 -->
+                    <div class="p-6 bg-white rounded-2xl border border-sand-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-amber-500 mb-3">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                            </div>
+                            <h4 class="font-bold text-sm text-sand-900">"The Ceramic Vase is breathtaking!"</h4>
+                            <p class="text-xs text-sand-800 mt-2 leading-relaxed">
+                                "You can instantly tell this wasn't made in a mass factory. The matte tactile clay texture and warm color bring my living room bookshelf to life."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 mt-6 pt-4 border-t border-sand-100">
+                            <div class="w-8 h-8 rounded-full bg-terracotta-200 text-terracotta-800 font-bold text-xs flex items-center justify-center">
+                                SC
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-sand-900">Sophia C.</h5>
+                                <span class="text-[10px] text-sand-800">Verified Buyer &bull; Seattle, WA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="p-6 bg-white rounded-2xl border border-sand-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-amber-500 mb-3">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                            </div>
+                            <h4 class="font-bold text-sm text-sand-900">"Macramé Hanging Transformed My Entryway"</h4>
+                            <p class="text-xs text-sand-800 mt-2 leading-relaxed">
+                                "Packed securely in zero plastic packaging! The cotton rope is thick, soft, and knotted to perfection. Everyone compliments it."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 mt-6 pt-4 border-t border-sand-100">
+                            <div class="w-8 h-8 rounded-full bg-sage-100 text-sage-700 font-bold text-xs flex items-center justify-center">
+                                MR
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-sand-900">Marcus R.</h5>
+                                <span class="text-[10px] text-sand-800">Verified Buyer &bull; Austin, TX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="p-6 bg-white rounded-2xl border border-sand-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-amber-500 mb-3">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                            </div>
+                            <h4 class="font-bold text-sm text-sand-900">"Custom Teak Tray Request Exceeded Expectations"</h4>
+                            <p class="text-xs text-sand-800 mt-2 leading-relaxed">
+                                "I commissioned a custom dimensions tray for my coffee table. The wood grain is magnificent and sealed with natural beeswax."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 mt-6 pt-4 border-t border-sand-100">
+                            <div class="w-8 h-8 rounded-full bg-terracotta-100 text-terracotta-800 font-bold text-xs flex items-center justify-center">
+                                AL
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-sand-900">Amara L.</h5>
+                                <span class="text-[10px] text-sand-800">Verified Buyer &bull; Toronto, CA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CUSTOM ORDER / BESPOKE REQUEST INQUIRY FORM -->
+        <section id="sec-custom" class="py-20 bg-white border-t border-sand-200">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="bg-sand-50 rounded-3xl p-8 sm:p-12 border border-sand-200 shadow-xl relative overflow-hidden">
+                    
+                    <div class="relative z-10">
+                        <div class="text-center max-w-xl mx-auto mb-8">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta-100 text-terracotta-700 text-xs font-semibold">
+                                <i data-lucide="palette" class="w-3.5 h-3.5"></i>
+                                <span>Bespoke Commissioning</span>
+                            </span>
+                            <h2 class="text-3xl font-serif font-bold text-sand-900 mt-3">Request a Custom Handcrafted Piece</h2>
+                            <p class="text-sand-800 text-xs sm:text-sm mt-2">
+                                Have specific dimensions, ceramic glazes, or wall space requirements? Our master artisans love custom requests!
+                            </p>
+                        </div>
+
+                        <form onsubmit="handleCustomRequestSubmit(event)" class="space-y-6">
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-sand-800 mb-2">Your Name *</label>
+                                    <input type="text" required placeholder="e.g. Eleanor Vance" class="w-full px-4 py-3 rounded-xl border border-sand-200 bg-white text-sand-900 text-xs focus:outline-none focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-sand-800 mb-2">Email Address *</label>
+                                    <input type="email" required placeholder="eleanor@example.com" class="w-full px-4 py-3 rounded-xl border border-sand-200 bg-white text-sand-900 text-xs focus:outline-none focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-sand-800 mb-2">Craft Medium *</label>
+                                    <select required class="w-full px-4 py-3 rounded-xl border border-sand-200 bg-white text-sand-900 text-xs focus:outline-none focus:border-terracotta-500">
+                                        <option value="">Select Craft Category</option>
+                                        <option value="ceramic">Custom Pottery / Ceramic Glaze</option>
+                                        <option value="macrame">Large Wall Macramé / Tapestry</option>
+                                        <option value="wood">Carved Wood Tray / Furniture</option>
+                                        <option value="textile">Custom Size Linen Cushion / Runner</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-sand-800 mb-2">Estimated Budget Target</label>
+                                    <select class="w-full px-4 py-3 rounded-xl border border-sand-200 bg-white text-sand-900 text-xs focus:outline-none focus:border-terracotta-500">
+                                        <option value="50-100">$50 – $100</option>
+                                        <option value="100-250">$100 – $250</option>
+                                        <option value="250-500">$250 – $500</option>
+                                        <option value="500+">$500+</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-sand-800 mb-2">Project Description & Dimensions *</label>
+                                <textarea rows="4" required placeholder="Describe your vision (e.g. 'I need a 30-inch terracotta floor vase with raw speckled finish...')" class="w-full px-4 py-3 rounded-xl border border-sand-200 bg-white text-sand-900 text-xs focus:outline-none focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500"></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="px-8 py-3.5 bg-terracotta-600 hover:bg-terracotta-700 text-white font-semibold text-xs rounded-xl shadow-lg shadow-terracotta-600/20 transition-all flex items-center justify-center gap-2 mx-auto">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                    <span>Submit Custom Request</span>
+                                </button>
+                            </div>
+
+                        </form>
+
+                        <!-- Toast Alert Container -->
+                        <div id="customOrderToast" class="hidden mt-6 p-4 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs text-center font-medium">
+                            ✨ Thank you! Your custom craft inquiry has been submitted. Our artisan will respond within 24 hours.
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SHOPPING CART MODAL -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div onclick="toggleCartModal()" class="absolute inset-0 bg-sand-900/50 backdrop-blur-sm transition-opacity"></div>
+        
+        <!-- Cart Drawer -->
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-sand-50 shadow-2xl flex flex-col justify-between z-10 transition-transform">
+            
+            <!-- Header -->
+            <div class="p-6 border-b border-sand-200 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 text-terracotta-600"></i>
+                    <h3 class="font-serif font-bold text-lg text-sand-900">Your Craft Bag</h3>
+                </div>
+                <button onclick="toggleCartModal()" class="p-2 rounded-full hover:bg-sand-200 text-sand-800">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Free Shipping Progress -->
+            <div id="shippingBarContainer" class="px-6 py-3 bg-terracotta-50 border-b border-terracotta-100 text-xs">
+                <p id="shippingMessage" class="text-terracotta-800 font-medium mb-1.5">Add $120.00 to qualify for Free Shipping!</p>
+                <div class="w-full bg-terracotta-200 h-2 rounded-full overflow-hidden">
+                    <div id="shippingProgressBar" class="bg-terracotta-600 h-full w-0 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <!-- Items List -->
+            <div id="cartItemsList" class="flex-grow overflow-y-auto p-6 space-y-4">
+                <!-- Cart items dynamically rendered here -->
+            </div>
+
+            <!-- Footer & Checkout -->
+            <div class="p-6 border-t border-sand-200 bg-white space-y-4">
+                <div class="space-y-1.5 text-xs">
+                    <div class="flex justify-between text-sand-800">
+                        <span>Subtotal</span>
+                        <span id="cartSubtotalText" class="font-bold text-sand-900">$0.00</span>
+                    </div>
+                    <div class="flex justify-between text-sand-800">
+                        <span>Estimated Shipping</span>
+                        <span id="cartShippingText" class="font-bold text-sand-900">Calculated at Checkout</span>
+                    </div>
+                    <div class="flex justify-between text-base font-serif font-bold text-sand-900 pt-2 border-t border-sand-100">
+                        <span>Total</span>
+                        <span id="cartTotalText">$0.00</span>
+                    </div>
+                </div>
+
+                <button onclick="simulateCheckout()" class="w-full py-3.5 bg-terracotta-600 hover:bg-terracotta-700 text-white font-semibold text-xs rounded-xl shadow-lg shadow-terracotta-600/20 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="lock" class="w-4 h-4"></i>
+                    <span>Proceed to Checkout</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- WISHLIST MODAL -->
+    <div id="wishlistModal" class="fixed inset-0 z-50 hidden">
+        <div onclick="toggleWishlistModal()" class="absolute inset-0 bg-sand-900/50 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-sand-50 shadow-2xl flex flex-col justify-between z-10">
+            <div class="p-6 border-b border-sand-200 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="heart" class="w-5 h-5 text-terracotta-600"></i>
+                    <h3 class="font-serif font-bold text-lg text-sand-900">Saved Favorites</h3>
+                </div>
+                <button onclick="toggleWishlistModal()" class="p-2 rounded-full hover:bg-sand-200 text-sand-800">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div id="wishlistItemsList" class="flex-grow overflow-y-auto p-6 space-y-4">
+                <!-- Wishlist items injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK VIEW PRODUCT MODAL -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div onclick="closeQuickView()" class="absolute inset-0 bg-sand-900/60 backdrop-blur-sm"></div>
+        <div class="relative bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 overflow-hidden shadow-2xl z-10 border border-sand-200 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 p-2 rounded-full bg-sand-100 hover:bg-sand-200 text-sand-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <div id="quickViewContent" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Content dynamically injected -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-sand-900 text-sand-200 pt-16 pb-12 border-t border-sand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-sand-800">
+                
+                <!-- Brand Column -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-terracotta-600 text-white flex items-center justify-center">
+                            <i data-lucide="flower-2" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-serif text-xl font-bold text-white tracking-tight">Artisan & Hearth</span>
+                    </div>
+                    <p class="text-xs text-sand-300 leading-relaxed max-w-sm">
+                        Creating soulful, organic home decor pieces crafted by independent artisans. Bringing warmth, tactile clay, and natural fibers to homes around the world.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-8 h-8 rounded-full bg-sand-800 text-sand-300 hover:bg-terracotta-600 hover:text-white transition-all flex items-center justify-center">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-sand-800 text-sand-300 hover:bg-terracotta-600 hover:text-white transition-all flex items-center justify-center">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-sand-800 text-sand-300 hover:bg-terracotta-600 hover:text-white transition-all flex items-center justify-center">
+                            <i data-lucide="pin" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4">Shop Collections</h4>
+                    <ul class="space-y-2 text-xs text-sand-300">
+                        <li><a href="#shop" onclick="filterByCategory('pottery')" class="hover:text-terracotta-300 transition-colors">Terracotta & Ceramics</a></li>
+                        <li><a href="#shop" onclick="filterByCategory('macrame')" class="hover:text-terracotta-300 transition-colors">Macramé Wall Art</a></li>
+                        <li><a href="#shop" onclick="filterByCategory('wood')" class="hover:text-terracotta-300 transition-colors">Carved Wood Trays</a></li>
+                        <li><a href="#shop" onclick="filterByCategory('textiles')" class="hover:text-terracotta-300 transition-colors">Organic Linen Throws</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Customer Care -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4">Artisan Care</h4>
+                    <ul class="space-y-2 text-xs text-sand-300">
+                        <li><a href="#story" onclick="switchTab('story')" class="hover:text-terracotta-300 transition-colors">Our Eco Philosophy</a></li>
+                        <li><a href="#custom" onclick="switchTab('custom')" class="hover:text-terracotta-300 transition-colors">Custom Order Inquiry</a></li>
+                        <li><a href="#" onclick="alert('Shipping & Return Policy: Free returns within 30 days. All orders packed plastic-free.')" class="hover:text-terracotta-300 transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" onclick="alert('Care Guide: Wipe ceramic pieces with damp cloth. Handwash macrame in lukewarm water.')" class="hover:text-terracotta-300 transition-colors">Craft Care Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-2">Join the Hearth Circle</h4>
+                    <p class="text-xs text-sand-300 mb-3">Subscribe for 10% off your first handcrafted item & seasonal previews.</p>
+                    <form onsubmit="handleNewsletter(event)" class="space-y-2">
+                        <input type="email" required placeholder="Enter your email" class="w-full px-3.5 py-2 rounded-lg bg-sand-800 border border-sand-700 text-white text-xs focus:outline-none focus:border-terracotta-500">
+                        <button type="submit" class="w-full py-2 bg-terracotta-600 hover:bg-terracotta-700 text-white text-xs font-semibold rounded-lg transition-all">Subscribe</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Sub-footer -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-sand-400 gap-4">
+                <div>
+                    © 2026 Artisan & Hearth. Crafted with love for modern homes.
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span>Protected Secure Checkout</span>
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        // Catalog Products Data Source
+        const PRODUCTS = [
+            {
+                id: 1,
+                name: "Hand-Thrown Terracotta Vase",
+                category: "pottery",
+                price: 48.00,
+                rating: 4.9,
+                reviewsCount: 42,
+                image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80",
+                badge: "Potter's Pick",
+                artisan: "Elena Vance",
+                description: "Wheel-thrown earthenware clay finished with a raw tactile glaze. Perfect for dried botanical stems or standalone shelf art."
+            },
+            {
+                id: 2,
+                name: "Boho Knot Macramé Wall Tapestry",
+                category: "macrame",
+                price: 65.00,
+                rating: 4.8,
+                reviewsCount: 28,
+                image: "https://images.unsplash.com/photo-1528458901411-2058337088b9?auto=format&fit=crop&w=600&q=80",
+                badge: "100% Organic Cotton",
+                artisan: "Maya Lin",
+                description: "Hand-knotted with unbleached natural cotton rope mounted on a reclaimed drift wood branch."
+            },
+            {
+                id: 3,
+                name: "Carved Acacia Wood Serving Tray",
+                category: "wood",
+                price: 52.00,
+                rating: 5.0,
+                reviewsCount: 31,
+                image: "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=600&q=80",
+                badge: "Beeswax Finish",
+                artisan: "Tomas Silva",
+                description: "Sculpted from sustainable acacia wood grain. Hand-polished with natural beeswax for a smooth organic sheen."
+            },
+            {
+                id: 4,
+                name: "Woven Slub Linen Cushion Cover",
+                category: "textiles",
+                price: 38.00,
+                rating: 4.7,
+                reviewsCount: 19,
+                image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80",
+                badge: "Hand-dyed",
+                artisan: "Clara Wood",
+                description: "Breathable textured European flax linen with brass zipper closure. Softens beautifully with each wash."
+            },
+            {
+                id: 5,
+                name: "Speckled Stoneware Coffee Mug Set",
+                category: "pottery",
+                price: 44.00,
+                rating: 4.9,
+                reviewsCount: 56,
+                image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
+                badge: "Set of 2",
+                artisan: "Elena Vance",
+                description: "Ergonomic thumb-rest handle and creamy speckled oatmeal glaze. Food, dishwasher & microwave safe."
+            },
+            {
+                id: 6,
+                name: "Natural Jute & Rattan Coaster Set",
+                category: "wood",
+                price: 24.00,
+                rating: 4.8,
+                reviewsCount: 22,
+                image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80",
+                badge: "Handwoven",
+                artisan: "Tomas Silva",
+                description: "Intricately hand-woven fiber coasters that protect wooden tabletops while adding warm natural texture."
+            },
+            {
+                id: 7,
+                name: "Terracotta Hanging Planter",
+                category: "pottery",
+                price: 42.00,
+                rating: 4.9,
+                reviewsCount: 38,
+                image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80",
+                badge: "Includes Macrame Hanger",
+                artisan: "Elena & Maya",
+                description: "Porous terracotta pot paired with heavy-duty cotton cords. Features bottom drainage for healthy houseplant roots."
+            },
+            {
+                id: 8,
+                name: "Fringed Linen Table Runner",
+                category: "textiles",
+                price: 46.00,
+                rating: 4.7,
+                reviewsCount: 15,
+                image: "https://images.unsplash.com/photo-1579656592043-a20e25a4aa4b?auto=format&fit=crop&w=600&q=80",
+                badge: "Raw Fringed Edge",
+                artisan: "Clara Wood",
+                description: "Natural flax shade table runner designed to elevate cozy dining tables and rustic sideboard setups."
+            }
+        ];
+
+        // State Variables
+        let cart = [];
+        let wishlist = [];
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        // Initialize Icons & App on DOM Load
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            renderProducts();
+            updateCartUI();
+            updateWishlistUI();
+        });
+
+        // Navigation Switcher
+        function switchTab(viewId) {
+            const sections = ['hero', 'shop', 'story', 'reviews', 'custom'];
+            
+            // Scroll smooth to target section
+            const targetEl = document.getElementById('sec-' + viewId);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Toggle Mobile Navigation
+        function toggleMobileNav() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Filter Products by Category
+        function filterByCategory(category) {
+            currentCategory = category;
+            
+            // Update Active Pill Buttons
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                btn.classList.remove('bg-terracotta-600', 'text-white');
+                btn.classList.add('bg-sand-100', 'text-sand-800');
+            });
+
+            const activeBtn = document.getElementById('cat-btn-' + category);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-terracotta-600', 'text-white');
+                activeBtn.classList.remove('bg-sand-100', 'text-sand-800');
+            }
+
+            renderProducts();
+
+            // Scroll down to store section if called from header
+            const shopSec = document.getElementById('sec-shop');
+            if (shopSec && window.scrollY < 300) {
+                shopSec.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Handle Search Input
+        function handleSearch(val) {
+            searchQuery = val.toLowerCase().trim();
+            renderProducts();
+        }
+
+        // Handle Sorting Change
+        function handleSortChange(sortType) {
+            if (sortType === 'price-low') {
+                PRODUCTS.sort((a, b) => a.price - b.price);
+            } else if (sortType === 'price-high') {
+                PRODUCTS.sort((a, b) => b.price - a.price);
+            } else if (sortType === 'rating') {
+                PRODUCTS.sort((a, b) => b.rating - a.rating);
+            } else {
+                PRODUCTS.sort((a, b) => a.id - b.id);
+            }
+            renderProducts();
+        }
+
+        // Render Product Cards
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyStoreState');
+            
+            grid.innerHTML = '';
+
+            const filtered = PRODUCTS.filter(p => {
+                const matchesCategory = (currentCategory === 'all' || p.category === currentCategory);
+                const matchesSearch = p.name.toLowerCase().includes(searchQuery) || p.description.toLowerCase().includes(searchQuery) || p.artisan.toLowerCase().includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                
+                filtered.forEach(p => {
+                    const isWishlisted = wishlist.includes(p.id);
+                    const card = document.createElement('div');
+                    card.className = "group bg-white rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between";
+                    
+                    card.innerHTML = `
+                        <div>
+                            <!-- Image Container -->
+                            <div class="relative aspect-square bg-sand-100 overflow-hidden cursor-pointer" onclick="openQuickView(${p.id})">
+                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                
+                                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-terracotta-700 font-semibold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                                    ${p.badge}
+                                </span>
+
+                                <button onclick="event.stopPropagation(); toggleWishlist(${p.id})" class="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white text-sand-800 transition-colors shadow">
+                                    <i data-lucide="heart" class="w-4 h-4 ${isWishlisted ? 'fill-terracotta-600 text-terracotta-600' : ''}"></i>
+                                </button>
+
+                                <div class="absolute inset-x-0 bottom-3 px-4 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center">
+                                    <button onclick="event.stopPropagation(); openQuickView(${p.id})" class="px-4 py-2 bg-sand-900/90 hover:bg-sand-900 text-white text-xs font-semibold rounded-lg shadow-lg backdrop-blur-sm transition-all flex items-center gap-1.5">
+                                        <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                                        <span>Quick View</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Details -->
+                            <div class="p-5">
+                                <div class="flex items-center justify-between text-xs text-sand-800 mb-1">
+                                    <span class="font-medium text-terracotta-600">${p.artisan}</span>
+                                    <div class="flex items-center gap-1 text-amber-500">
+                                        <i data-lucide="star" class="w-3 h-3 fill-amber-500"></i>
+                                        <span class="font-bold text-sand-900">${p.rating}</span>
+                                    </div>
+                                </div>
+
+                                <h3 onclick="openQuickView(${p.id})" class="font-serif font-bold text-base text-sand-900 hover:text-terracotta-600 transition-colors cursor-pointer line-clamp-1">
+                                    ${p.name}
+                                </h3>
+
+                                <p class="text-xs text-sand-800 line-clamp-2 mt-1.5 leading-relaxed">
+                                    ${p.description}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="px-5 pb-5 pt-0 flex items-center justify-between border-t border-sand-100 mt-2 pt-3">
+                            <div>
+                                <span class="text-xs text-sand-800 block leading-none">Price</span>
+                                <span class="text-lg font-serif font-bold text-sand-900">$${p.price.toFixed(2)}</span>
+                            </div>
+
+                            <button onclick="addToCart(${p.id})" class="px-4 py-2 bg-terracotta-600 hover:bg-terracotta-700 text-white font-semibold text-xs rounded-xl shadow transition-all flex items-center gap-1.5">
+                                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                <span>Add to Bag</span>
+                            </button>
+                        </div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+            }
+
+            lucide.createIcons();
+        }
+
+        // Cart State Logic
+        function addToCart(productId) {
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                const product = PRODUCTS.find(p => p.id === productId);
+                cart.push({ ...product, qty: 1 });
+            }
+            updateCartUI();
+            toggleCartModal(true); // Open drawer on addition
+        }
+
+        function updateCartQty(productId, delta) {
+            const idx = cart.findIndex(item => item.id === productId);
+            if (idx !== -1) {
+                cart[idx].qty += delta;
+                if (cart[idx].qty <= 0) {
+                    cart.splice(idx, 1);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartCountBadge = document.getElementById('cartCountBadge');
+            const cartItemsList = document.getElementById('cartItemsList');
+            const cartSubtotalText = document.getElementById('cartSubtotalText');
+            const cartTotalText = document.getElementById('cartTotalText');
+            const shippingMessage = document.getElementById('shippingMessage');
+            const shippingProgressBar = document.getElementById('shippingProgressBar');
+
+            const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+            cartCountBadge.innerText = totalItems;
+            cartSubtotalText.innerText = `$${subtotal.toFixed(2)}`;
+            cartTotalText.innerText = `$${subtotal.toFixed(2)}`;
+
+            // Shipping Threshold Calc ($120 for free shipping)
+            const threshold = 120;
+            if (subtotal >= threshold) {
+                shippingMessage.innerText = "🎉 You've unlocked FREE Shipping!";
+                shippingProgressBar.style.width = "100%";
+            } else {
+                const needed = threshold - subtotal;
+                shippingMessage.innerText = `Add $${needed.toFixed(2)} more to qualify for Free Shipping!`;
+                const pct = Math.min(100, (subtotal / threshold) * 100);
+                shippingProgressBar.style.width = `${pct}%`;
+            }
+
+            // Render List Items
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = `
+                    <div class="text-center py-12 text-sand-800">
+                        <i data-lucide="shopping-bag" class="w-12 h-12 text-sand-300 mx-auto mb-3"></i>
+                        <p class="font-bold text-sm text-sand-900">Your craft bag is empty</p>
+                        <p class="text-xs text-sand-800 mt-1">Discover handcrafted items and add them here.</p>
+                    </div>
+                `;
+            } else {
+                cartItemsList.innerHTML = '';
+                cart.forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = "flex items-center gap-4 bg-white p-3 rounded-xl border border-sand-200 shadow-sm";
+                    row.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-lg object-cover">
+                        <div class="flex-grow">
+                            <h4 class="font-serif font-bold text-xs text-sand-900 line-clamp-1">${item.name}</h4>
+                            <span class="text-[11px] text-terracotta-600 font-medium">$${item.price.toFixed(2)}</span>
+                            
+                            <div class="flex items-center gap-2 mt-2">
+                                <button onclick="updateCartQty(${item.id}, -1)" class="w-5 h-5 rounded bg-sand-100 hover:bg-sand-200 text-sand-800 flex items-center justify-center text-xs font-bold">-</button>
+                                <span class="text-xs font-bold text-sand-900">${item.qty}</span>
+                                <button onclick="updateCartQty(${item.id}, 1)" class="w-5 h-5 rounded bg-sand-100 hover:bg-sand-200 text-sand-800 flex items-center justify-center text-xs font-bold">+</button>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-sand-900">$${(item.price * item.qty).toFixed(2)}</span>
+                        </div>
+                    `;
+                    cartItemsList.appendChild(row);
+                });
+            }
+
+            lucide.createIcons();
+        }
+
+        function toggleCartModal(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            if (forceOpen) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        // Wishlist Logic
+        function toggleWishlist(productId) {
+            const idx = wishlist.indexOf(productId);
+            if (idx === -1) {
+                wishlist.push(productId);
+            } else {
+                wishlist.splice(idx, 1);
+            }
+            updateWishlistUI();
+            renderProducts();
+        }
+
+        function updateWishlistUI() {
+            document.getElementById('wishlistBadge').innerText = wishlist.length;
+            const list = document.getElementById('wishlistItemsList');
+
+            if (wishlist.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-12 text-sand-800">
+                        <i data-lucide="heart" class="w-12 h-12 text-sand-300 mx-auto mb-3"></i>
+                        <p class="font-bold text-sm text-sand-900">No saved favorites yet</p>
+                        <p class="text-xs text-sand-800 mt-1">Tap the heart icon on any product to save it here.</p>
+                    </div>
+                `;
+            } else {
+                list.innerHTML = '';
+                wishlist.forEach(id => {
+                    const p = PRODUCTS.find(item => item.id === id);
+                    if (!p) return;
+                    const card = document.createElement('div');
+                    card.className = "flex items-center justify-between bg-white p-3 rounded-xl border border-sand-200";
+                    card.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <img src="${p.image}" class="w-12 h-12 rounded-lg object-cover">
+                            <div>
+                                <h4 class="font-bold text-xs text-sand-900 line-clamp-1">${p.name}</h4>
+                                <span class="text-[11px] text-terracotta-600 font-bold">$${p.price.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <button onclick="addToCart(${p.id}); toggleWishlist(${p.id})" class="px-3 py-1.5 bg-terracotta-600 text-white text-xs font-semibold rounded-lg">
+                            Move to Bag
+                        </button>
+                    `;
+                    list.appendChild(card);
+                });
+            }
+            lucide.createIcons();
+        }
+
+        function toggleWishlistModal() {
+            document.getElementById('wishlistModal').classList.toggle('hidden');
+        }
+
+        // Quick View Modal
+        function openQuickView(productId) {
+            const p = PRODUCTS.find(item => item.id === productId);
+            if (!p) return;
+
+            const content = document.getElementById('quickViewContent');
+            content.innerHTML = `
+                <div class="aspect-square bg-sand-100 rounded-2xl overflow-hidden border border-sand-200">
+                    <img src="${p.image}" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600">${p.badge}</span>
+                        <h3 class="font-serif font-bold text-2xl text-sand-900 mt-1">${p.name}</h3>
+                        <div class="flex items-center gap-2 mt-2 text-xs">
+                            <span class="text-sand-800">Artisan: <strong class="text-sand-900">${p.artisan}</strong></span>
+                            <span>&bull;</span>
+                            <div class="flex items-center gap-1 text-amber-500">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+                                <span class="font-bold text-sand-900">${p.rating} (${p.reviewsCount} reviews)</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-sand-800 mt-4 leading-relaxed">${p.description}</p>
+                        
+                        <div class="mt-4 p-3 bg-sand-50 rounded-xl border border-sand-200 text-[11px] text-sand-800">
+                            <strong>🌱 Eco Material Note:</strong> Made with 100% natural organic materials. Ships in zero-plastic recyclable packaging.
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-sand-100 flex items-center justify-between mt-6">
+                        <span class="text-2xl font-serif font-bold text-sand-900">$${p.price.toFixed(2)}</span>
+                        <button onclick="addToCart(${p.id}); closeQuickView()" class="px-6 py-3 bg-terracotta-600 hover:bg-terracotta-700 text-white font-semibold text-xs rounded-xl shadow-lg shadow-terracotta-600/20 transition-all flex items-center gap-2">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            <span>Add to Craft Bag</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('quickViewModal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.add('hidden');
+        }
+
+        // Form Submission Handlers
+        function handleCustomRequestSubmit(e) {
+            e.preventDefault();
+            const toast = document.getElementById('customOrderToast');
+            toast.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 6000);
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            alert("✨ Welcome to the Hearth Circle! Check your inbox for your 10% discount code.");
+            e.target.reset();
+        }
+
+        function simulateCheckout() {
+            if (cart.length === 0) {
+                alert("Your craft bag is empty! Add some handcrafted items before checking out.");
+                return;
+            }
+            alert("🛒 Simulated Checkout Process initialized! Thank you for supporting independent handmade artisans.");
+            cart = [];
+            updateCartUI();
+            toggleCartModal();
+        }
+    </script>
+</body>
+</html>
