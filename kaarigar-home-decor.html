@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaarigar — Handmade Home Decor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <svg class="mark" viewBox="0 0 32 32" fill="none"><path d="M9 12c0-3 3-6 7-6s7 3 7 6l-2 13a2 2 0 0 1-2 1.7H13a2 2 0 0 1-2-1.7L9 12Z" stroke="#AE5A38" stroke-width="1.6"/><path d="M9 12h14" stroke="#AE5A38" stroke-width="1.6"/></svg>
+      Kaarigar
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#shop">Shop</a>
+      <a href="#craft">Craft</a>
+      <a href="#story">Story</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span class="menu-icon"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow-row"><span class="dot"></span> Made by hand in small batches</div>
+        <h1>Home decor <em>shaped</em> by hand, not by machine</h1>
+        <p class="lede">Kaarigar works with potters, weavers and metalsmiths across India to make flower pots, cups, trays, plates and bangles — each one a little different from the last, the way handmade things should be.</p>
+        <div class="hero-ctas">
+          <a href="#shop" class="btn-primary">Browse the collection</a>
+          <a href="#craft" class="btn-secondary">See how it's made</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b data-count="42">0</b><span>Partner artisans</span></div>
+          <div class="stat"><b data-count="15">0</b><span>Years of craft</span></div>
+          <div class="stat"><b data-count="8600">0</b><span>Pieces homed</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="ring"></div>
+        <svg id="wheelArt" viewBox="0 0 300 300" fill="none">
+          <circle cx="150" cy="150" r="120" fill="#F6F1E4" stroke="#AE5A38" stroke-width="1.5" stroke-dasharray="4 6"/>
+          <path d="M100 190c0-40 15-95 50-95s50 55 50 95c0 14-22 24-50 24s-50-10-50-24Z" fill="#C97B54"/>
+          <ellipse cx="150" cy="95" rx="50" ry="12" fill="#AE5A38"/>
+          <ellipse cx="150" cy="95" rx="38" ry="7" fill="#8f4429"/>
+          <path d="M100 190c0 14 22 24 50 24s50-10 50-24" stroke="#8f4429" stroke-width="1.4"/>
+          <path d="M112 150c8 3 68 3 76 0" stroke="#8f4429" stroke-width="1.2" opacity="0.6"/>
+        </svg>
+        <div class="float-chip chip-1"><span class="sw" style="background:var(--clay)"></span>Terracotta</div>
+        <div class="float-chip chip-2"><span class="sw" style="background:var(--sage)"></span>Hand-glazed</div>
+        <div class="float-chip chip-3"><span class="sw" style="background:var(--brass)"></span>Brass inlay</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY STRIP -->
+  <div class="cat-strip">
+    <div class="cat-strip-inner">
+      <a href="#shop">Flower Pots</a>
+      <a href="#shop">Cups &amp; Kettles</a>
+      <a href="#shop">Trays &amp; Platters</a>
+      <a href="#shop">Plates &amp; Bowls</a>
+      <a href="#shop">Bangles</a>
+      <a href="#shop">Gifting Sets</a>
+      <a href="#shop">Seasonal Edit</a>
+    </div>
+  </div>
+
+  <!-- CATEGORIES GRID -->
+  <section id="shop">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Five crafts, one workshop</h2>
+        <p>Every category is rooted in a different material tradition — clay, brass, wood and glaze — brought together under one roof.</p>
+      </div>
+
+      <div class="cat-grid reveal">
+        <div class="cat-card">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M10 16c0-5 6-9 14-9s14 4 14 9l-3 22a3 3 0 0 1-3 2.6H16a3 3 0 0 1-3-2.6L10 16Z" fill="#C97B54"/><path d="M10 16h28" stroke="#EBE3D0" stroke-width="1.5"/></svg>
+          <div>
+            <h3>Flower Pots</h3>
+            <span class="count">120+ styles</span>
+          </div>
+        </div>
+        <div class="cat-card">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="14" width="24" height="22" rx="2" fill="#AE5A38"/><path d="M32 18h4a4 4 0 0 1 0 8h-4" stroke="#AE5A38" stroke-width="2.4"/></svg>
+          <div><h3>Cups &amp; Kettles</h3><span class="count">64 styles</span></div>
+        </div>
+        <div class="cat-card">
+          <svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="26" rx="18" ry="8" fill="#707C57"/><ellipse cx="24" cy="23" rx="18" ry="8" fill="#8b9871"/></svg>
+          <div><h3>Trays</h3><span class="count">38 styles</span></div>
+        </div>
+        <div class="cat-card">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" fill="#A9843F"/><circle cx="24" cy="24" r="10" fill="#c7a463"/></svg>
+          <div><h3>Plates</h3><span class="count">51 styles</span></div>
+        </div>
+        <div class="cat-card">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="17" cy="24" r="9" stroke="#AE5A38" stroke-width="3"/><circle cx="31" cy="24" r="9" stroke="#A9843F" stroke-width="3"/></svg>
+          <div><h3>Bangles</h3><span class="count">96 styles</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT GRID -->
+  <section class="products">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Fresh off the wheel</h2>
+        <p>A rotating edit of what our artisans finished this season.</p>
+      </div>
+
+      <div class="prod-grid reveal">
+
+        <div class="prod-card">
+          <div class="prod-media" style="background:#EADFC8;">
+            <span class="prod-tag">Terracotta</span>
+            <svg viewBox="0 0 200 180" fill="none"><path d="M60 90c0-30 14-60 40-60s40 30 40 60l-6 70a6 6 0 0 1-6 5H72a6 6 0 0 1-6-5l-6-70Z" fill="#C97B54"/><ellipse cx="100" cy="30" rx="42" ry="9" fill="#AE5A38"/></svg>
+          </div>
+          <div class="prod-body">
+            <div class="row"><h3>Bidri Rim Planter</h3><span class="price">₹950</span></div>
+            <p>Hand-thrown terracotta, sealed with a matte glaze. 8" diameter.</p>
+            <a href="#contact" class="enquire-btn">Enquire on WhatsApp →</a>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-media" style="background:#E4DCCB;">
+            <span class="prod-tag">Stoneware</span>
+            <svg viewBox="0 0 200 180" fill="none"><rect x="55" y="60" width="90" height="80" rx="8" fill="#AE5A38"/><path d="M145 75h20a16 16 0 0 1 0 32h-20" stroke="#8f4429" stroke-width="8" fill="none"/></svg>
+          </div>
+          <div class="prod-body">
+            <div class="row"><h3>Sona Chai Kettle</h3><span class="price">₹1,450</span></div>
+            <p>Wood-fired stoneware kettle with a cane-wrapped handle.</p>
+            <a href="#contact" class="enquire-btn">Enquire on WhatsApp →</a>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-media" style="background:#DEE3D1;">
+            <span class="prod-tag">Mango wood + brass</span>
+            <svg viewBox="0 0 200 180" fill="none"><ellipse cx="100" cy="95" rx="72" ry="30" fill="#707C57"/><ellipse cx="100" cy="88" rx="72" ry="30" fill="#8b9871"/></svg>
+          </div>
+          <div class="prod-body">
+            <div class="row"><h3>Sundara Serving Tray</h3><span class="price">₹1,180</span></div>
+            <p>Mango-wood tray with inlaid brass edging, sanded by hand.</p>
+            <a href="#contact" class="enquire-btn">Enquire on WhatsApp →</a>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-media" style="background:#EFE6CE;">
+            <span class="prod-tag">Glazed ceramic</span>
+            <svg viewBox="0 0 200 180" fill="none"><circle cx="100" cy="90" r="60" fill="#A9843F"/><circle cx="100" cy="90" r="38" fill="#c7a463"/></svg>
+          </div>
+          <div class="prod-body">
+            <div class="row"><h3>Neel Dinner Plate Set</h3><span class="price">₹2,300</span></div>
+            <p>Set of 4 — indigo-glazed stoneware, dishwasher safe.</p>
+            <a href="#contact" class="enquire-btn">Enquire on WhatsApp →</a>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-media" style="background:#EADFC8;">
+            <span class="prod-tag">Brass</span>
+            <svg viewBox="0 0 200 180" fill="none"><circle cx="80" cy="90" r="38" stroke="#AE5A38" stroke-width="10"/><circle cx="128" cy="90" r="38" stroke="#A9843F" stroke-width="10"/></svg>
+          </div>
+          <div class="prod-body">
+            <div class="row"><h3>Meenakari Bangle Set</h3><span class="price">₹680</span></div>
+            <p>Hand-enamelled brass, set of 6 in graduating tones.</p>
+            <a href="#contact" class="enquire-btn">Enquire on WhatsApp →</a>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-media" style="background:#E4DCCB;">
+            <span class="prod-tag">Terracotta</span>
+            <svg viewBox="0 0 200 180" fill="none"><path d="M55 70c0-22 18-35 45-35s45 13 45 35l-8 65a6 6 0 0 1-6 5H69a6 6 0 0 1-6-5L55 70Z" fill="#C97B54"/></svg>
+          </div>
+          <div class="prod-body">
+            <div class="row"><h3>Gudiya Table Cup Duo</h3><span class="price">₹420</span></div>
+            <p>Unglazed kulhad-style cups, best served with warm chai.</p>
+            <a href="#contact" class="enquire-btn">Enquire on WhatsApp →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="craft" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>From clay to your shelf</h2>
+        <p>Five stages, most of them still done exactly as they were fifty years ago.</p>
+      </div>
+      <div class="process-track reveal">
+        <div class="process-step"><span class="num">01</span><h4>Dig &amp; knead</h4><p>Raw clay is sourced locally and kneaded by foot to remove air pockets.</p></div>
+        <div class="process-step"><span class="num">02</span><h4>Throw on the wheel</h4><p>Shaped by hand on a manually spun potter's wheel, one piece at a time.</p></div>
+        <div class="process-step"><span class="num">03</span><h4>Sun-dry</h4><p>Left to dry slowly in open air over two to four days, weather permitting.</p></div>
+        <div class="process-step"><span class="num">04</span><h4>Fire in the kiln</h4><p>Wood-fired at high heat to harden the form and set the base tone.</p></div>
+        <div class="process-step"><span class="num">05</span><h4>Paint &amp; finish</h4><p>Glazed, dyed or left bare, then hand-finished and checked piece by piece.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="wrap">
+      <div class="story">
+        <div class="story-art reveal">
+          <svg viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="80" fill="#EBE3D0" opacity="0.25"/>
+            <path d="M60 120c0-40 18-75 40-75s40 35 40 75c0 12-18 20-40 20s-40-8-40-20Z" fill="#F6F1E4"/>
+            <path d="M60 120c8 6 72 6 80 0" stroke="#2B2420" stroke-width="1.4" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="reveal">
+          <h2>Started at a family kiln in 2011, still run the same way</h2>
+          <p>Kaarigar began as a two-room workshop where one family threw pots for the neighbourhood. Today we work with 42 artisan households across Uttar Pradesh, Rajasthan and Gujarat — but the pieces are still shaped, dried and fired the same slow way they always were.</p>
+          <p>No two pieces leave the kiln identical. We think that's the point: a small crack in the glaze, a slightly uneven rim — these are signatures, not flaws.</p>
+          <div class="story-signature">— Team Kaarigar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="reviews" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>What people bring home</h2>
+        <p>A few notes from customers who've had these pieces on their shelves for a while.</p>
+      </div>
+      <div class="testi-track reveal">
+        <div class="testi-card">
+          <p>"The planter has been outside through two monsoons and still looks better than the day it arrived."</p>
+          <div class="testi-who"><div class="av">R</div><div><b>Riya Malhotra</b><span>Lucknow</span></div></div>
+        </div>
+        <div class="testi-card">
+          <p>"Ordered the chai kettle for my mother — she says it pours better than any steel one she's owned."</p>
+          <div class="testi-who"><div class="av">A</div><div><b>Amit Verma</b><span>Delhi</span></div></div>
+        </div>
+        <div class="testi-card">
+          <p>"The bangle set was a gift for my sister's wedding. The enamel work is genuinely hand-done, not printed."</p>
+          <div class="testi-who"><div class="av">S</div><div><b>Sana Khan</b><span>Bengaluru</span></div></div>
+        </div>
+        <div class="testi-card">
+          <p>"Every tray we bought has a slightly different grain. That's exactly why we bought four."</p>
+          <div class="testi-who"><div class="av">N</div><div><b>Nikhil Rao</b><span>Pune</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Get first look at new pieces</h2>
+          <p class="cta-sub">One short email a month — new drops, workshop notes, and a few pieces that never make it online.</p>
+        </div>
+        <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+          <input type="email" placeholder="you@email.com" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Kaarigar</div>
+        <p class="footer-blurb">Handmade home decor from artisan workshops across India.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop">Flower Pots</a></li>
+          <li><a href="#shop">Cups &amp; Kettles</a></li>
+          <li><a href="#shop">Trays</a></li>
+          <li><a href="#shop">Bangles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#story">Our story</a></li>
+          <li><a href="#craft">The craft</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reach us</h4>
+        <ul>
+          <li><a href="mailto:hello@kaarigar.co">hello@kaarigar.co</a></li>
+          <li><a href="tel:+911234567890">+91 12345 67890</a></li>
+          <li><a href="#">Lucknow, Uttar Pradesh</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kaarigar. All pieces handmade to order.</span>
+      <span>Design concept — built for demonstration</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/911234567890" class="float-cta" id="floatCta" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.8 14.2c-.25.7-1.4 1.35-2 1.45-.5.1-1.2.15-1.9-.1-.45-.15-1-.35-1.75-.7-3.1-1.35-5.1-4.5-5.25-4.7-.15-.2-1.25-1.65-1.25-3.15 0-1.5.8-2.25 1.05-2.55.25-.3.55-.35.75-.35h.55c.2 0 .45-.05.7.55.25.6.85 2.1.9 2.25.05.15.1.3 0 .5-.1.2-.15.3-.3.45-.15.15-.3.35-.45.45-.15.15-.3.3-.15.6.15.3.7 1.2 1.5 1.95 1.05.95 1.9 1.25 2.2 1.4.3.15.5.15.65-.05.15-.2.65-.8.85-1.05.2-.25.4-.2.65-.1.25.1 1.7.8 2 .95.3.15.5.2.55.35.05.15.05.85-.2 1.55Z"/></svg>
+</a>
+
+<script>
+(function(){
+  // Scroll progress + header state
+  var progress = document.getElementById('progress');
+  var header = document.getElementById('siteHeader');
+  var floatCta = document.getElementById('floatCta');
+  var wheel = document.getElementById('wheelArt');
+  var heroArt = document.querySelector('.hero-art');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function onScroll(){
+    var doc = document.documentElement;
+    var scrollTop = window.scrollY || doc.scrollTop;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var pct = max > 0 ? (scrollTop / max) * 100 : 0;
+    progress.style.width = pct + '%';
+
+    header.classList.toggle('scrolled', scrollTop > 40);
+    floatCta.classList.toggle('show', scrollTop > 480);
+
+    if(!reduced){
+      if(wheel) wheel.style.transform = 'rotate(' + (scrollTop * 0.18) + 'deg)';
+      if(heroArt) heroArt.style.transform = 'translateY(' + Math.min(scrollTop * 0.08, 40) + 'px)';
+    }
+  }
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  // Mobile menu
+  var menuBtn = document.getElementById('menuBtn');
+  var navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+  });
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.15 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // Count-up stats
+  var stats = document.querySelectorAll('[data-count]');
+  var counted = false;
+  function countUp(){
+    if(counted) return;
+    var statsSection = document.querySelector('.hero-stats');
+    if(!statsSection) return;
+    var rect = statsSection.getBoundingClientRect();
+    if(rect.top < window.innerHeight * 0.9){
+      counted = true;
+      stats.forEach(function(stat){
+        var target = parseInt(stat.getAttribute('data-count'), 10);
+        var start = 0;
+        var duration = 1100;
+        var startTime = null;
+        function step(ts){
+          if(!startTime) startTime = ts;
+          var progressT = Math.min((ts - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progressT, 3);
+          stat.textContent = Math.floor(eased * target).toLocaleString();
+          if(progressT < 1) requestAnimationFrame(step);
+          else stat.textContent = target.toLocaleString();
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  document.addEventListener('scroll', countUp, { passive:true });
+  countUp();
+})();
+</script>
+
+</body>
+</html>
